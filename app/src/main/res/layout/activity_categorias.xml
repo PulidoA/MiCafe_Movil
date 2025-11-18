@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="16dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="end">
+
+        <Button
+            android:id="@+id/btnPerfil"
+            android:text="Perfil"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnConfiguracion"
+            android:text="Configuración"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTituloCategorias"
+        android:text="Categorías"
+        android:textSize="20sp" android:textStyle="bold"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <ListView
+        android:id="@+id/listaCategorias"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:divider="@android:color/darker_gray" android:dividerHeight="1dp"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

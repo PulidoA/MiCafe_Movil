@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="16dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvEstado"
+        android:text="Tu pedido va en camino"
+        android:textSize="18sp" android:textStyle="bold"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/imgMapa"
+        android:layout_width="match_parent" android:layout_height="220dp"
+        android:src="@drawable/mapa" android:scaleType="centerCrop"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/btnAbrirMapa"
+        android:text="Ver en mapa"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnCompartir"
+        android:text="Compartir estado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+    <Button
+        android:id="@+id/btnVerPedidos"
+        android:text="Ver pedidos guardados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

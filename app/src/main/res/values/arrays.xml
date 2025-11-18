@@ -1,0 +1,65 @@
+<resources>
+    <!-- Categorías -->
+    <string-array name="categorias">
+        <item>Cafés</item>
+        <item>Bebidas</item>
+        <item>Postres</item>
+        <item>Snacks</item>
+    </string-array>
+
+    <!-- Cafés -->
+    <string-array name="nombres_cafes">
+        <item>Espresso</item>
+        <item>Capuchino</item>
+    </string-array>
+    <string-array name="precios_cafes">
+        <item>4500</item>
+        <item>6500</item>
+    </string-array>
+    <string-array name="descripciones_cafes">
+        <item>Café intenso 30ml</item>
+        <item>Espresso con leche espumada</item>
+    </string-array>
+
+    <!-- Bebidas -->
+    <string-array name="nombres_bebidas">
+        <item>Limonada</item>
+        <item>Té helado</item>
+    </string-array>
+    <string-array name="precios_bebidas">
+        <item>5000</item>
+        <item>5200</item>
+    </string-array>
+    <string-array name="descripciones_bebidas">
+        <item>Con hierbabuena</item>
+        <item>Té negro y limón</item>
+    </string-array>
+
+    <!-- Postres -->
+    <string-array name="nombres_postres">
+        <item>Brownie</item>
+        <item>Cheesecake</item>
+    </string-array>
+    <string-array name="precios_postres">
+        <item>7000</item>
+        <item>8200</item>
+    </string-array>
+    <string-array name="descripciones_postres">
+        <item>Chocolate con nuez</item>
+        <item>Queso con frutos rojos</item>
+    </string-array>
+
+    <!-- Snacks -->
+    <string-array name="nombres_snacks">
+        <item>Panini</item>
+        <item>Croissant</item>
+    </string-array>
+    <string-array name="precios_snacks">
+        <item>8500</item>
+        <item>4000</item>
+    </string-array>
+    <string-array name="descripciones_snacks">
+        <item>Jamón y queso</item>
+        <item>Mantequilla</item>
+    </string-array>
+</resources>
