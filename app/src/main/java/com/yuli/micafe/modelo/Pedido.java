@@ -11,6 +11,25 @@ public class Pedido {
     public String cliente;     // nombre o id del cliente
     public double total;       // total del pedido
     public String estado;      // p.ej.: "EN_PROCESO", "EN_CAMINO", "ENTREGADO"
+    public String nombre;      // p.ej.: "EN_PROCESO", "EN_CAMINO", "ENTREGADO"
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String descripcion;      // p.ej.: "EN_PROCESO", "EN_CAMINO", "ENTREGADO"
     public long fechaMs;       // System.currentTimeMillis()
 
     public long getId() {

@@ -1,5 +1,7 @@
 package com.yuli.micafe;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,5 +22,20 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Session validation logic
+        SharedPreferences prefs = getSharedPreferences("session", MODE_PRIVATE);
+        long userId = prefs.getLong("userId", -1);
+
+        if (userId != -1) {
+            Intent i = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(i);
+            finish();
+            return;
+        } else {
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+            return;
+        }
     }
 }

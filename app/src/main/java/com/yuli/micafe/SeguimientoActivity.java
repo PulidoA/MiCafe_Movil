@@ -34,6 +34,7 @@ public class SeguimientoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seguimiento);
+        DrawerHelper.setup(this);
 
         tvEstado = findViewById(R.id.tvEstado);
         btnAbrirMapa = findViewById(R.id.btnAbrirMapa);
@@ -49,7 +50,7 @@ public class SeguimientoActivity extends AppCompatActivity {
         btnCompartir.setOnClickListener(v -> compartirEstado());
 
         btnVerPedidos.setOnClickListener(v -> {
-            Intent i = new Intent(SeguimientoActivity.this, PedidoListActivity.class);
+            Intent i = new Intent(SeguimientoActivity.this, HomeActivity.class);
             startActivity(i);
         });
 

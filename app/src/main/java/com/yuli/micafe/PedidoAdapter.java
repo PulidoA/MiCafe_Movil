@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yuli.micafe.modelo.Pedido;
+import com.yuli.micafe.modelo.PedidoListener;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -19,6 +20,12 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.VH> {
 
     private final List<Pedido> data = new ArrayList<>();
     private final DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+
+    private PedidoListener listener;
+
+    public void setListener(PedidoListener l) {
+        this.listener = l;
+    }
 
     public void submit(List<Pedido> nuevos) {
         data.clear();
@@ -68,18 +75,25 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.VH> {
             fechaTexto = df.format(new Date(fechaMs));
         }
         h.tvFecha.setText("Fecha: " + fechaTexto);
+
+        // Botón eliminar
+        h.btnEliminar.setOnClickListener(v -> {
+            if (listener != null) listener.onEliminar(p);
+        });
     }
 
     @Override public int getItemCount() { return data.size(); }
 
     static class VH extends RecyclerView.ViewHolder {
-        TextView tvCliente, tvEstado, tvTotal, tvFecha;
+        TextView tvCliente, tvEstado, tvTotal, tvFecha, btnEliminar;
         VH(@NonNull View v) {
             super(v);
             tvCliente = v.findViewById(R.id.tvCliente);
             tvEstado  = v.findViewById(R.id.tvEstado);
             tvTotal   = v.findViewById(R.id.tvTotal);
             tvFecha   = v.findViewById(R.id.tvFecha);
+            btnEliminar = v.findViewById(R.id.btnEliminar);
         }
     }
 }
+

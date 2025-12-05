@@ -1,6 +1,7 @@
 package com.yuli.micafe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,11 @@ public class LoginActivity extends AppCompatActivity {
                     if (u == null) {
                         Toast.makeText(this, "Credenciales inválidas", Toast.LENGTH_SHORT).show();
                     } else {
+                        SharedPreferences prefs = getSharedPreferences("session", MODE_PRIVATE);
+                        prefs.edit()
+                                .putLong("userId", u.id)
+                                .putString("userName", u.name)
+                                .apply();
                         Intent i = new Intent(this, HomeActivity.class);
                         i.putExtra("userId", u.id);
                         i.putExtra("userName", u.name);

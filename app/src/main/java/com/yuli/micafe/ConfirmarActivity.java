@@ -16,12 +16,13 @@ import java.util.concurrent.Executors;
 
 public class ConfirmarActivity extends AppCompatActivity {
 
-    private Executor executor = Executors.newSingleThreadExecutor();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar);
+        DrawerHelper.setup(this);
 
         // Retrieve the total amount passed via Intent extras
         int totalAmount = getIntent().getIntExtra("total", 0);
@@ -33,24 +34,8 @@ public class ConfirmarActivity extends AppCompatActivity {
         // Find the button and set an OnClickListener to navigate to SeguimientoActivity
         Button btnSeguirPedido = findViewById(R.id.btnSeguirPedido);
         btnSeguirPedido.setOnClickListener(view -> {
-            // Create a new Pedido object with dummy data
-            Pedido pedido = new Pedido();
-            pedido.setCliente("Cliente Fijo");
-            pedido.setTotal(totalAmount);
-            pedido.setEstado("EN_CAMINO");
-            pedido.setFecha(new Date().getTime());
-
-            // Save pedido in background thread
-            executor.execute(() -> {
-                AppDatabase db = AppDatabase.getInstance(getApplicationContext());
-                db.pedidoDao().insertar(pedido);
-
-                runOnUiThread(() -> {
-                    Toast.makeText(ConfirmarActivity.this, "Pedido guardado correctamente", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ConfirmarActivity.this, SeguimientoActivity.class);
-                    startActivity(intent);
-                });
-            });
+            Intent intent = new Intent(ConfirmarActivity.this, SeguimientoActivity.class);
+            startActivity(intent);
         });
     }
 }

@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yuli.micafe.modelo.Pedido;
+import com.yuli.micafe.modelo.PedidoListener;
 
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -26,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_home);
+        DrawerHelper.setup(this);
 
         tvHola = findViewById(R.id.tvHola);
         tvVacio = findViewById(R.id.tvVacio);
@@ -45,11 +49,27 @@ public class HomeActivity extends AppCompatActivity {
             i.putExtra("userId", userId);
             startActivity(i);
         });
+
+        adapter.setListener(p -> new Thread(() -> {
+            AppDatabase.getInstance(getApplicationContext()).pedidoDao().eliminar(p);
+
+            runOnUiThread(() -> {
+                Toast.makeText(HomeActivity.this, "Pedido eliminado", Toast.LENGTH_SHORT).show();
+                cargarPedidos(); // refresca lista
+            });
+        }).start());
     }
 
     @Override protected void onResume() {
         super.onResume();
         cargarPedidos();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!DrawerHelper.handleOnBackPressed(this)) {
+            super.onBackPressed();
+        }
     }
 
     private void cargarPedidos() {

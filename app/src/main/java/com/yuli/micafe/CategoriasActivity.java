@@ -1,19 +1,16 @@
 package com.yuli.micafe;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 
-public class CategoriasActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CategoriasActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_categorias);
-
-        Button btnPerfil = findViewById(R.id.btnPerfil);
-        Button btnConfiguracion = findViewById(R.id.btnConfiguracion);
-        btnPerfil.setOnClickListener(v -> startActivity(new Intent(this, PerfilActivity.class)));
-        btnConfiguracion.setOnClickListener(v -> startActivity(new Intent(this, ConfiguracionActivity.class)));
+        DrawerHelper.setup(this);
 
         ListView lv = findViewById(R.id.listaCategorias);
         String[] categorias = getResources().getStringArray(R.array.categorias);

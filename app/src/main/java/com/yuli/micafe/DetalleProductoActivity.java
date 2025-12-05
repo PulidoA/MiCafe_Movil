@@ -1,15 +1,17 @@
 package com.yuli.micafe;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 
-public class DetalleProductoActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DetalleProductoActivity extends AppCompatActivity {
 
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_detalle_producto);
+        DrawerHelper.setup(this);
 
         String nombre = getIntent().getStringExtra("nombre");
         int precio = getIntent().getIntExtra("precio", 0);
@@ -22,6 +24,7 @@ public class DetalleProductoActivity extends Activity {
         findViewById(R.id.btnAgregar).setOnClickListener(v -> {
             Intent i = new Intent(this, CarritoActivity.class);
             i.putExtra("nombre", nombre);
+            i.putExtra("descripcion", descripcion);
             i.putExtra("precio", precio);
             startActivity(i);
         });

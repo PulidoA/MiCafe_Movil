@@ -17,17 +17,18 @@
         android:label="MiCafé"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Base.Theme.MyApplication"
         android:supportsRtl="true">
 
 
-        <activity android:name=".LoginActivity" android:exported="true">
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
+        <activity android:name=".LoginActivity" />
         <activity android:name=".CategoriasActivity" />
         <activity android:name=".ListaProductosActivity" />
         <activity android:name=".DetalleProductoActivity" />

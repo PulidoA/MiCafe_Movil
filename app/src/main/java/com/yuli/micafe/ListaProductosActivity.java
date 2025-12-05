@@ -1,14 +1,16 @@
 package com.yuli.micafe;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 
-public class ListaProductosActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ListaProductosActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_lista_productos);
+        DrawerHelper.setup(this);
 
         String categoria = getIntent().getStringExtra("categoria");
         ((TextView)findViewById(R.id.tvTitulo)).setText(categoria);
